@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+:root{
+    --color-black: #000000;
+    --color-white: #FFFFFF;
+    --color-primary-dark: #460150;
+    --color-primary-light: #d6aaee;
+    --color-secondary-dark: #fff6bd;
+    --color-secondary-light: #9ef5e6;
+    --color-gray-35: #595959;
+    --color-gray-85: #d9d9d9;
+    --color-gray-50: #808080;
+}
+
+body{
+    background-color: var(--color-primary-dark);
+    
+}
