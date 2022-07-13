@@ -2,5 +2,5 @@
 Portfolio made using HTML, CSS and Javascript
 
 
-## Subheader
+## Additional
 Committed via terminal version of git
