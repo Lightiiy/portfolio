@@ -19,10 +19,10 @@
 
 @keyframes scaleAnim {
     0%{
-        transform: translateX(-100%) scaleX(0)
+        transform: translateX(-100%)
     }
     100%{
-        transform: translateX(0) scaleX(1)
+        transform: translateX(0)
     }
 }
 
@@ -59,9 +59,10 @@ section{
 
 .section{
     transform: translateY(-100%) scale(0);
+    animation: scaleAnim 1s ease-in-out;
     transition: all .4s ease-in-out;
     background-color: var(--color-primary-dark);
-    color: var(--color-secondary-dark);
+    color: var(--color-white);
 }
 
 .sec1{
@@ -94,9 +95,8 @@ section{
 
 .active{
     display: block;
-    animation: scaleAnim 1s ease-in-out;
 }
-
+/*Styling of buttons and their behaviour*/
 .controls{
     color: var(--color-secondary-dark);
     position: fixed;
@@ -145,6 +145,7 @@ i{
     height: 100%;
 }
 
+/*Left portion of the header page - image and background shape*/
 .left-header{
     display: flex;
     align-items: center;
@@ -153,18 +154,85 @@ i{
 
 .shape{
     transition: all .4s ease-in-out;
-    width: 50%;
+    width: 75%;
     height: 100%;
     background-color: var(--color-secondary-dark);
     position: absolute;
     left: 0;
     top: 0;
     z-index: -1;
+    clip-path: circle(60.0% at 0 50% );
 }
 
-
-/* Independent */
 .image{
-    border: 3px solid red;
-    max-width: 50%;
+    margin: 4rem;
+    transition: all .4s ease-in-out;
 }
+
+img{
+    max-width: 75%;
+    height: auto;
+    object-fit: cover;
+    transition: all .4s ease-in-out;
+    border-radius: 50%;
+}
+/*Right portion of header page - short introduction and CV link*/
+.right-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 18rem;
+}
+
+.name{
+    font-size: 3rem;
+}
+
+span{
+    color: var(--color-secondary-dark);
+}
+
+p{
+    margin: 1.5rem 0;
+    line-height: 2rem;
+}
+/* CV button */
+
+.cv-con{
+    display: flex;
+    align-self: flex-start;
+    border: 2px solid var(--color-secondary-dark);
+    border-radius: 30px;
+    height: 2.5rem;
+    overflow:hidden;
+    align-items: center;
+    display: flex;
+    align-self: flex-start;
+}
+
+.cv-btn-text{
+    padding: 2rem;
+}
+
+/*
+.cv-btn{
+    border-radius: 30px;
+    font-weight: 600;
+    position: relative;
+    border: 1px solid var(--color-secondary-dark);
+    display: flex;
+    align-self: flex-start;
+    align-items: center;
+}
+
+
+
+.cv-btn-icon{
+    color: var(--color-secondary-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    padding: 0.5rem;
+}
+*/
