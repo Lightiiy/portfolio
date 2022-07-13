@@ -26,6 +26,17 @@
     }
 }
 
+@keyframes rotateAnim {
+    0%{
+        transform: translateX(-50%) rotate(0); 
+    }
+    100%{
+        transform: translateX(0) rotate(360deg); 
+
+    }
+
+}
+
 body{
     background-color: var(--color-primary-dark);
     font-family: 'Oxygen', sans-serif;
@@ -161,7 +172,7 @@ i{
     left: 0;
     top: 0;
     z-index: -1;
-    clip-path: circle(60.0% at 0 50% );
+    clip-path: circle(60% at 0 50% );
 }
 
 .image{
@@ -171,7 +182,7 @@ i{
 
 img{
     max-width: 75%;
-    height: auto;
+    height: 75%;
     object-fit: cover;
     transition: all .4s ease-in-out;
     border-radius: 50%;
@@ -195,24 +206,55 @@ span{
 p{
     margin: 1.5rem 0;
     line-height: 2rem;
+    font-size: 1.3rem;
+    font-weight: 500;
 }
 /* CV button */
-
 .cv-con{
     display: flex;
+    align-self: center;
+}
+
+.cv-btn{
+    display: flex;
     align-self: flex-start;
-    border: 2px solid var(--color-secondary-dark);
-    border-radius: 30px;
     height: 2.5rem;
     overflow:hidden;
     align-items: center;
     display: flex;
     align-self: flex-start;
+    border: 2px solid transparent;
+    border-radius: 30px;
+    transition: all .4s ease-in;
 }
 
 .cv-btn-text{
-    padding: 2rem;
+    padding: 1rem;
+    font-weight: 700;
 }
+
+.cv-btn-icon{
+    padding: 1rem;
+    color: transparent;
+    transition: all .8s ease-in;
+}
+
+.cv-btn:hover > .cv-btn-icon{
+     color: var(--color-secondary-dark);
+     animation: rotateAnim .8s ease-in;
+
+}
+
+.cv-btn:hover > .cv-btn-text{
+    color: var(--color-white);
+}
+
+
+.cv-btn:hover{
+    border-color: var(--color-secondary-dark);
+    background-color: var(--color-gray-50);
+}
+
 
 /*
 .cv-btn{
