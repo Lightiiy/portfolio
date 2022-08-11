@@ -1,5 +1,5 @@
 # portfolio
-Portfolio made using HTML, CSS and Javascript
+https://lightiiy.github.io/portfolio/
 
 
 ## Additional
