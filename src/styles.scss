@@ -1,4 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+@import 'bootstrap/scss/bootstrap';
+@import './assets/fonts.css';
+
+body{
+    height: 100vh;
+    padding: 16px;
+    background: rgb(77,8,143);
+    background: linear-gradient(0deg, rgba(77,8,143,1) 57%, rgba(160,77,238,1) 100%);
+}
