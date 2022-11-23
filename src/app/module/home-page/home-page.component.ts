@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {readFileSync, promises as fsPromises} from 'fs';
+import {dogImages} from './../../../assets/images/dog/dogList'
 
 @Component({
   selector: 'app-home-page',
@@ -7,16 +9,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
-
   public showMyPhoto: boolean = false;
+  private dogImages: string[] = dogImages()
 
-  testEvent()
+
+  constructor() { 
+    this.changeImageAfterInterval();
+  }
+
+  changeImageAfterInterval(){
+    let i = 0;
+      setInterval( () => {
+        console.log(i);
+        let about = document.getElementById("about");
+        about!.style.backgroundImage = "url('" + this.dogImages[i] +"')";
+        i = (i+1)%this.dogImages.length
+      },
+      10000);
+  }
+
+
+
+  cvEvent()
   {
     console.log("test");
   }
 
-  testChange(){
+  changePhotos(){
     this.showMyPhoto = !this.showMyPhoto;
   }
 

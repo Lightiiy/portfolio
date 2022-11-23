@@ -3,10 +3,26 @@
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
 @import './assets/fonts.css';
+@import './assets/theme.scss';
 
-body{
-    height: 100vh;
-    padding: 16px;
-    background: rgb(77,8,143);
-    background: linear-gradient(0deg, rgba(77,8,143,1) 57%, rgba(160,77,238,1) 100%);
+body {
+  height: 100%;
+  padding: 1rem;
+  margin: 0;
+  background: var(--bg-color);
+  background: linear-gradient(
+    0deg,
+    var(--bg-color) 57%,
+    var(--bg-color-high) 100%
+  );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  //remove scroll for IE, Edge and Firefox
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+//remove scroll for Chrome, Safari and opera
+body::-webkit-scrollbar {
+  display: none;
 }

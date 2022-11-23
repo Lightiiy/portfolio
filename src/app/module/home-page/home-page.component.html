@@ -1,27 +1,27 @@
 <div>
-  <div class="wrapper">
-    <div id="welcome" class="circle">
-      <div class="welcome-text">
-        <h1>Welcome</h1>
-        <p>I'm a young IT student with a passion for design</p>
-      </div>
+  <div class="wrapper-mobile">
+    <div class="welcome">
+      <h1>Welcome</h1>
+      <p>
+        I'm a young IT student with a passion for user friendly, interactive
+        design
+      </p>
+      <div (click)="cvEvent()" class="cv"><h3>CV</h3></div>
     </div>
 
-    <div id="cv" (click)="testEvent()" class="circle">CV</div>
-    <div *ngIf="showMyPhoto; then myPhoto; else axiPhoto"></div>
-    <ng-template #myPhoto>
-      <div id="about" class="circle">
-        <h2>About my me</h2>
-      </div>
-    </ng-template>
-    <ng-template #axiPhoto>
-      <div id="about" class="circle">
-        <h2>About my dog (and me)</h2>
-      </div>
-    </ng-template>
-    <button class="photo-change" (click)="testChange()">Change photo</button>
-
-    <div id="navbar">
+    <div id="about">
+      <div *ngIf="showMyPhoto; then myPhoto; else axiPhoto"></div>
+      <ng-template #myPhoto>
+        <h2 class="about-text">About me</h2>
+      </ng-template>
+      <ng-template #axiPhoto>
+        <h2 class="about-text dog">About my dog</h2>
+      </ng-template>
+      <button class="change-photo" (click)="changePhotos()">
+        Change photo
+      </button>
+    </div>
+    <div class="navbar">
       <ul>
         <li>1</li>
         <li>2</li>

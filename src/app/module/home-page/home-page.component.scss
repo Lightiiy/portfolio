@@ -1,75 +1,80 @@
 //Mobile 320px - 1023px
 //Tablet 1024px - 1439px
-//Desktop 1440px 
+//Desktop 1440px
+@import './../../../assets/theme.scss';
 
+.wrapper-mobile {
+  display: flex;
+  flex-direction: column;
+  justify-items: flex-start;
+  align-items: center;
+  justify-content: space-evenly;
+  z-index: -1;
+  color: var(--bg-color);
 
-.wrapper{
-    display: flex;
-    flex-direction: column;
-    justify-items: flex-start;
-    align-items: center;
-    justify-content: space-evenly;
-    z-index: -1;
-
-    #welcome{
-        z-index: 1;
-        width: 95vw;
-        height: 95vw;
-        display: flex;
-        justify-items: flex-start;
-        align-items: center;
-        justify-content: center;
-        background-color: red;
-
-        #welcome-text{
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-    }
-
-    #cv{
-        background-color: green;
-        z-index: 2;
-        width: 30vw;
-        height: 30vw;
-        transform: translate(25vw, -10vh);
-    }
-
-    #about{
-        z-index: 1;
-        background-color: blue;
-        width: 75vw;
-        height: 75vw;
-    }
-
-    .photo-change{
-        z-index: 2;
-        border: none;
-        background-color: transparent;
-        transform: translate(-25vw,-5vh);
-    }
-
-    #navbar{
-        width: 100%;
-        padding: 1rem;
-        ul{
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-    }
-    
-}
-
-.circle{
+  .welcome,
+  .cv,
+  .about {
     display: flex;
     justify-content: center;
+  }
+
+  h2 {
+    font-weight: bolder;
+  }
+
+  .welcome {
+    @include circle(--accent-sec, 95vw);
+    position: relative;
+    z-index: 1;
+    flex-direction: column;
     align-items: center;
     text-align: center;
-    border-radius: 100%;
+    margin-bottom: 7.5rem;
+  }
+
+  .cv {
+    @include circle(--accent-third, 30vw);
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    h3 {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  #about {
+    @include circle(--accent-sec, 75vw);
+    position: relative;
+    text-align: center;
+    z-index: 1;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .about-text {
+    font-size: 1.25rem;
+    padding: 1.5rem 0;
+    color: white;
+    text-shadow: 2px 2px var(--bg-color);
+  }
+
+  .dog::after {
+    content: '(and me)';
+    display: block;
+    font-size: 0.75rem;
+  }
+
+  .change-photo {
+    @include circle(--accent-third, 25%);
+    z-index: 2;
+    position: absolute;
+    font-size: 0.75rem;
+    bottom: 0;
+    left: 0;
+    border: none;
+  }
 }

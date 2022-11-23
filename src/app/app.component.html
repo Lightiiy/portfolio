@@ -1,1 +1,10 @@
+<div *ngIf="true; else homePage">
+  <div class="welcome-page-mobile">
+    <h2 class="greeting">Hello!</h2>
+    <button class="cv">Quick access to CV</button>
+  </div>
+</div>
+<ng-template #homePage>
+  <app-home-page></app-home-page>
+</ng-template>
 <router-outlet></router-outlet>
