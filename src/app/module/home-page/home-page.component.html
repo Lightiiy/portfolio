@@ -9,7 +9,11 @@
       <div (click)="cvEvent()" class="cv"><h3>CV</h3></div>
     </div>
 
-    <div id="about">
+    <div
+      id="about"
+      [ngStyle]="{
+        'background-image': 'url(' + this.currentImage + ')'
+      }">
       <div *ngIf="showMyPhoto; then myPhoto; else axiPhoto"></div>
       <ng-template #myPhoto>
         <h2 class="about-text">About me</h2>

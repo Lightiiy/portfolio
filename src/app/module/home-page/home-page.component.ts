@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {readFileSync, promises as fsPromises} from 'fs';
-import {dogImages} from './../../../assets/images/dog/dogList'
+import { PhotoLibraryService } from 'src/app/service/photo-library/photo-library.service';
 
 @Component({
   selector: 'app-home-page',
@@ -10,22 +9,20 @@ import {dogImages} from './../../../assets/images/dog/dogList'
 export class HomePageComponent implements OnInit {
 
   public showMyPhoto: boolean = false;
-  private dogImages: string[] = dogImages()
+  public currentImage!: string;
 
 
-  constructor() { 
+  constructor( public photoLibraryService: PhotoLibraryService) { 
     this.changeImageAfterInterval();
   }
 
   changeImageAfterInterval(){
-    let i = 0;
-      setInterval( () => {
-        console.log(i);
-        let about = document.getElementById("about");
-        about!.style.backgroundImage = "url('" + this.dogImages[i] +"')";
-        i = (i+1)%this.dogImages.length
-      },
-      10000);
+    this.photoLibraryService.imageLibrary.subscribe( value => {
+      this.currentImage = value;
+      console.log(value)
+    });
+    // let about = document.getElementById("about");
+    // about!.style.backgroundImage = "url('" + this.dogImages +"')";
   }
 
 
@@ -37,6 +34,7 @@ export class HomePageComponent implements OnInit {
 
   changePhotos(){
     this.showMyPhoto = !this.showMyPhoto;
+    this.photoLibraryService.changeSourceOfImages();
   }
 
   ngOnInit(): void {
