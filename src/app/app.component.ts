@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'portfolio';
+
+  public isWelcomeVisible: boolean = true;
+
+  unwelcomeThePage(){
+    this.isWelcomeVisible = !this.isWelcomeVisible;
+    console.log(this.isWelcomeVisible);
+  }
 }
