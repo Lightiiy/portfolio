@@ -1,8 +1,8 @@
 export function meImages(): string[] {
   let list: string[] =
   [
-    './../../../assets/images/dog/me1.jpg',
-    './../../../assets/images/dog/me2.png',
+    './../../../assets/images/me/me1.jpg',
+    './../../../assets/images/me/me2.png',
   ];
 
   return list;

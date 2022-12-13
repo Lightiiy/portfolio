@@ -12,6 +12,5 @@ export class AppComponent {
 
   unwelcomeThePage(){
     this.isWelcomeVisible = !this.isWelcomeVisible;
-    console.log(this.isWelcomeVisible);
   }
 }

@@ -12,7 +12,9 @@
     <div
       id="about"
       [ngStyle]="{
-        'background-image': 'url(' + this.currentImage + ')'
+        'background-image': this.setBackground
+          ? 'url(' + this.currentImage + ')'
+          : 'none'
       }">
       <div *ngIf="showMyPhoto; then myPhoto; else axiPhoto"></div>
       <ng-template #myPhoto>

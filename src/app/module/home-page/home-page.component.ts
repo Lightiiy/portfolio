@@ -9,6 +9,7 @@ import { PhotoLibraryService } from 'src/app/service/photo-library/photo-library
 export class HomePageComponent implements OnInit {
 
   public showMyPhoto: boolean = false;
+  public setBackground: boolean = true;
   public currentImage!: string;
 
 
@@ -18,14 +19,17 @@ export class HomePageComponent implements OnInit {
 
   changeImageAfterInterval(){
     this.photoLibraryService.imageLibrary.subscribe( value => {
-      this.currentImage = value;
-      console.log(value)
+      if(value === 'null')
+        {
+          this.setBackground = false;
+        }
+        else 
+        {
+        this.currentImage = value;
+        this.setBackground = true;
+        }
     });
-    // let about = document.getElementById("about");
-    // about!.style.backgroundImage = "url('" + this.dogImages +"')";
   }
-
-
 
   cvEvent()
   {

@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import {dogImages} from './../../../assets/images/dog/dogList'
-import { meImages } from 'src/assets/me/meList';
+import { meImages } from 'src/assets/images/me/meList';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PhotoLibraryService {
 
-  public imageLibrary: BehaviorSubject<string> = new BehaviorSubject('null');
+  public readonly imageLibrary: BehaviorSubject<string> = new BehaviorSubject('null');
   public imageDecideSource: BehaviorSubject<boolean> = new BehaviorSubject(true);
   private photoTab!: string[];
   private dogTab: string[] = dogImages();
@@ -20,11 +20,12 @@ export class PhotoLibraryService {
     setInterval( () => {
       this.imageLibrary.next(this.photoTab[i]);
       i = (i+1)%this.photoTab.length;
-    }, 1000)
+    }, 5000)
   }
 
   changeSourceOfImages(){ 
-    if(this.imageDecideSource){
+    this.imageLibrary.next('null');
+    if(this.imageDecideSource.value){
       this.photoTab = this.dogTab;
       }
     else
@@ -32,7 +33,6 @@ export class PhotoLibraryService {
         this.photoTab = this.meTab;
       }
       this.imageDecideSource.next(!this.imageDecideSource.value);
-      console.log(this.photoTab);
     }
 
 
