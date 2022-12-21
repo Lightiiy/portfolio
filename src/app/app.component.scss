@@ -1,6 +1,6 @@
 @import './../assets/theme.scss';
 
-.welcome-page-mobile {
+.welcome-page {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 33% 2fr 1fr 1fr;
@@ -26,5 +26,12 @@
     border: none;
     background: none;
     color: var(--accent);
+  }
+}
+@media (min-width: 768px) {
+  .welcome-page {
+    .greeting {
+      @include circle(--second, 30vw);
+    }
   }
 }
