@@ -6,6 +6,11 @@
   --accent: #f9f871;
   --accent-sec: #ffb948;
   --accent-third: #ff764b;
+  --gradient: linear-gradient(
+    0deg,
+    var(--bg-color) 57%,
+    var(--bg-color-high) 100%
+  );
 }
 
 @mixin circle($color-value, $radius) {

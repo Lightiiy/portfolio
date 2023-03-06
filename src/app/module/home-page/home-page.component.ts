@@ -13,7 +13,7 @@ export class HomePageComponent implements OnInit{
   public currentImage!: string;
 
 
-  constructor( public photoLibraryService: PhotoLibraryService, private renderer: Renderer2, private elem: ElementRef) { 
+  constructor( public photoLibraryService: PhotoLibraryService) { 
     this.changeImageAfterInterval();
   }
 

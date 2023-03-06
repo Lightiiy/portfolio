@@ -10,19 +10,54 @@ body {
   padding: 1rem;
   margin: 0;
   background: var(--bg-color);
-  background: linear-gradient(
-    0deg,
-    var(--bg-color) 57%,
-    var(--bg-color-high) 100%
-  );
+  background: var(--gradient);
   background-repeat: no-repeat;
   background-attachment: fixed;
   //remove scroll for IE, Edge and Firefox
-  -ms-overflow-style: none;
+
   scrollbar-width: none;
 }
 
 //remove scroll for Chrome, Safari and opera
 body::-webkit-scrollbar {
   display: none;
+}
+// font size decleration using Minor Third scale for Mobile
+// 24px / 20px / 17px / 14px / 12px / 10px / 8px
+
+html {
+  font-size: 10px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+.under-text {
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  font-size: 2.488rem;
+  font-weight: 500;
+}
+
+h3,
+h2 {
+  font-size: 2.074rem;
+}
+
+h4,
+h5 {
+  font-size: 1.728rem;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+.under-text {
+  font-size: 0.833rem;
 }

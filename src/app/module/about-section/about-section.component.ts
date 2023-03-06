@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-about-section',
@@ -7,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutSectionComponent implements OnInit {
 
-  constructor() { }
+  constructor( private renderer: Renderer2) { }
 
   ngOnInit(): void {
-  }
+    this.renderer.setStyle(document.body, 'background', 'var(--bg-color-high)');
+ }
 
 }
