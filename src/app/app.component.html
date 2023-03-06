@@ -1,7 +1,13 @@
 <div *ngIf="isWelcomeVisible; else homePage">
   <div class="welcome-page">
     <h2 class="greeting" (click)="unwelcomeThePage()">Hello!</h2>
-    <button class="cv">Quick access to CV</button>
+    <button class="cv">
+      <a
+        href="../assets/documents/CV GABRIEL BEKIER EN.pdf"
+        download="CV GABRIEL BEKIER EN.pdf"
+        >Quick access to CV</a
+      >
+    </button>
   </div>
 </div>
 <ng-template #homePage>

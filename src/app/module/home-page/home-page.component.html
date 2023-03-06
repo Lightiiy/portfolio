@@ -6,23 +6,32 @@
         I'm a young IT student with a passion for user friendly, interactive
         design
       </p>
-      <div (click)="cvEvent()" class="cv"><h3>CV</h3></div>
+      <a
+        (click)="cvEvent()"
+        href="../assets/documents/CV GABRIEL BEKIER EN.pdf"
+        download="CV GABRIEL BEKIER EN.pdf"
+        class="cv">
+        <h3>CV</h3>
+      </a>
     </div>
+    <div id="about">
+      <div
+        class="about-bg"
+        [ngStyle]="{
+          'background-image': this.setBackground
+            ? 'url(' + this.currentImage + ')'
+            : 'none'
+        }"
+        [routerLink]="'about'">
+        <div *ngIf="showMyPhoto; then myPhoto; else axiPhoto"></div>
+        <ng-template #myPhoto>
+          <h2 class="about-text">About me</h2>
+        </ng-template>
+        <ng-template #axiPhoto>
+          <h2 class="about-text dog">About my dog</h2>
+        </ng-template>
+      </div>
 
-    <div
-      id="about"
-      [ngStyle]="{
-        'background-image': this.setBackground
-          ? 'url(' + this.currentImage + ')'
-          : 'none'
-      }">
-      <div *ngIf="showMyPhoto; then myPhoto; else axiPhoto"></div>
-      <ng-template #myPhoto>
-        <h2 class="about-text">About me</h2>
-      </ng-template>
-      <ng-template #axiPhoto>
-        <h2 class="about-text dog">About my dog</h2>
-      </ng-template>
       <button class="change-photo" (click)="changePhotos()">
         Change photo
       </button>

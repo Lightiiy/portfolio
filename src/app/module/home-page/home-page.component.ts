@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { PhotoLibraryService } from 'src/app/service/photo-library/photo-library.service';
 
 @Component({
@@ -6,14 +6,14 @@ import { PhotoLibraryService } from 'src/app/service/photo-library/photo-library
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss']
 })
-export class HomePageComponent implements OnInit {
+export class HomePageComponent implements OnInit{
 
   public showMyPhoto: boolean = false;
   public setBackground: boolean = true;
   public currentImage!: string;
 
 
-  constructor( public photoLibraryService: PhotoLibraryService) { 
+  constructor( public photoLibraryService: PhotoLibraryService, private renderer: Renderer2, private elem: ElementRef) { 
     this.changeImageAfterInterval();
   }
 
@@ -42,6 +42,7 @@ export class HomePageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
 
 }

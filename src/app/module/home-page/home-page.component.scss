@@ -47,6 +47,10 @@
   }
 
   #about {
+    position: relative;
+  }
+
+  .about-bg {
     @include circle(--accent-sec, 75vw);
     position: relative;
     text-align: center;
@@ -72,10 +76,9 @@
   .change-photo {
     @include circle(--accent-third, 25%);
     z-index: 2;
+    bottom: 0;
     position: absolute;
     font-size: 0.9rem;
-    bottom: 0;
-    left: 0;
     border: none;
     color: var(--bg-color);
   }
