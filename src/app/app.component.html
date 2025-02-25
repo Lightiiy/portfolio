@@ -1,10 +1,4 @@
-<div *ngIf="isWelcomeVisible; else homePage">
-  <div class="welcome-page">
-    <h2 class="greeting" (click)="unwelcomeThePage()">Hello!</h2>
-    <button class="cv">Quick access to CV</button>
-  </div>
+<div class="portfolio__mainPage">
+  <port-navigation></port-navigation>
+  <router-outlet></router-outlet>
 </div>
-<ng-template #homePage>
-  <app-home-page></app-home-page>
-</ng-template>
-<router-outlet></router-outlet>
