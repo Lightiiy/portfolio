@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationModule } from './components/navigation/navigation.module';
 import { BackgroundModule } from './components/background/background.module';
-import { HomePageComponent } from './components/home-page/home-page.component';
+import { HomePageModule } from './components/home-page/home-page.module';
 
 @NgModule({
-  declarations: [AppComponent, HomePageComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     NavigationModule,
     AppRoutingModule,
     BackgroundModule,
+    HomePageModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
