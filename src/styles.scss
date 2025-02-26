@@ -1,41 +1,6 @@
-@use "app/styles/colors" as colors;
-
 body {
+  position: absolute;
+  top: 0;
   margin: 0;
   padding: 0;
-  background-color: colors.$bg-color;
-}
-
-.portfolioBackground {
-  position: absolute;
-  background-color: colors.$bg-color;
-  z-index: 0;
-  width: 100vw;
-  height: 100vh;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  &__fancyCursor {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    pointer-events: none;
-    background: radial-gradient(
-      circle,
-      colors.$bg-color-high 5%,
-      transparent 55%
-    );
-    transition: transform 0.1s ease-out;
-  }
-}
-
-.portfolioContent {
-  position: relative;
-  background-color: red;
-  z-index: 1;
-  width: 50vw;
-  height: 50vh;
-  //   transform: translate(-50%, -50%);
 }

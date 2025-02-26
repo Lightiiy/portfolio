@@ -7,6 +7,8 @@ platformBrowserDynamic()
   })
   .catch((err) => console.error(err));
 
+const backgroundDiv = document.querySelector('.portfolioBackground');
+
 document.addEventListener('mousemove', (event) => {
   const follower = document.querySelector(
     '.portfolioBackground__fancyCursor',
