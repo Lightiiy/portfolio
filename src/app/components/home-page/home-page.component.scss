@@ -1,0 +1,38 @@
+@use "../../styles/colors";
+@use "../../styles/grid";
+
+.portfolioHomePage {
+  position: absolute;
+  background-color: colors.$bg-color-3;
+  top: 50vh;
+  left: 50vw;
+  width: 75vw;
+  height: 80vh;
+  border: solid 0.5rem black;
+  border-radius: 16px;
+  transform: translate(-50%, -50%);
+
+  @media (min-width: grid.$breakpoint-sm) {
+    width: 70vw;
+  }
+
+  @media (min-width: grid.$breakpoint-md) {
+    width: 65vw;
+  }
+
+  @media (min-width: grid.$breakpoint-lg) {
+    width: 60vw;
+  }
+
+  @media (min-width: grid.$breakpoint-xl) {
+    width: 50vw;
+  }
+
+  @media (min-width: grid.$breakpoint-xxl) {
+    width: 33vw;
+  }
+
+  &__bannerContainer {
+    width: 100%;
+  }
+}
