@@ -1,5 +1,10 @@
 <port-background> </port-background>
 <div class="portfolio__main">
-  <port-navigation></port-navigation>
-  <router-outlet></router-outlet>
+  <port-display-banner class="portfolio__banner"></port-display-banner>
+  <div class="portfolio__textBox">
+    <div class="portfolio__routerOutlet">
+      <router-outlet></router-outlet>
+    </div>
+    <port-navigation-menu></port-navigation-menu>
+  </div>
 </div>

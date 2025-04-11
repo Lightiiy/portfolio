@@ -1,0 +1,18 @@
+@use '../../../styles/typography';
+@use '../../../styles/spacing';
+
+.dialogue {
+	font-family: typography.$font-primary-pixel;
+	font-size: typography.$font-size-md;
+	display: inline-block;
+	color: blue;
+
+	&__text {
+		margin: spacing.$space-xs;
+	}
+
+	&__text::before {
+		content: '♦';
+		padding: 0 spacing.$space-def;
+	}
+}

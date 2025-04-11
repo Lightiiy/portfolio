@@ -1,0 +1,19 @@
+@use "../../styles/grid";
+
+.portfolio {
+  &__navigationMenu {
+    display: block;
+    color: red;
+    border-top: 5px solid white;
+
+    @media (min-width: grid.$breakpoint-sm) {
+      border-top: none;
+      border-left: 5px solid white;
+    }
+  }
+}
+:host {
+  background: hotpink;
+  display: block;
+  border: 1px dashed lime;
+}

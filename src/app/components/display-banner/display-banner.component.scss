@@ -1,0 +1,37 @@
+@use '../../styles/typography';
+@use '../../styles/spacing';
+
+.portfolioDisplayBanner {
+	position: relative;
+	background-image: url('../../../assets/img/PLACEHOLDER.jpg');
+	height: 100%;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+
+	&__nextIndicatorButton {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		margin: spacing.$space-xs spacing.$space-md;
+		font-family: typography.$font-primary-pixel;
+		font-size: typography.$font-size-l;
+		color: white;
+		border-right: 0.25rem solid transparent;
+		animation: blink-carret 0.75s step-end infinite;
+	}
+}
+
+.removed {
+	display: none;
+}
+
+@keyframes blink-carret {
+	from,
+	to {
+		border-color: white;
+	}
+	50% {
+		border-color: transparent;
+	}
+}

@@ -1,6 +1,40 @@
+@use "styles/grid";
+
 .portfolio {
   &__main {
     position: relative;
     z-index: 1;
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    grid-template-areas:
+      "banner"
+      "text";
+    height: 100vh;
+    width: 100vw;
+  }
+  &__banner {
+    grid-area: banner;
+    height: 100%;
+  }
+
+  &__textBox {
+    grid-area: text;
+    min-height: 0;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    border: 10px solid white;
+
+    @media (min-width: grid.$breakpoint-sm) {
+      grid-template-rows: 1fr;
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+
+  &__routerOutlet {
+    overflow: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }

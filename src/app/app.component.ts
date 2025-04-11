@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { TranslateService } from './shared/services/translate.service';
 
 @Component({
   selector: 'port-root',
@@ -6,6 +7,12 @@ import { Component } from '@angular/core';
   standalone: false,
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'portfolio';
+
+  translateService = inject(TranslateService);
+
+  ngOnInit(): void {
+    this.translateService.setLanguage('en');
+  }
 }

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { ScreenWidthService } from '../../shared/services/screen-width.service';
 
 @Component({
   selector: 'port-background',
@@ -6,10 +7,14 @@ import { Component } from '@angular/core';
   templateUrl: './background.component.html',
   styleUrl: './background.component.scss',
 })
-export class BackgroundComponent {
-  bubbleAmount() {
-    const amount = Math.floor(window.innerWidth / 40);
+export class BackgroundComponent implements OnInit {
+  private screenWidthService = inject(ScreenWidthService);
 
-    return Array.from({ length: amount });
+  ngOnInit(): void {
+    this.screenWidthService.currentScreenWidth();
   }
 }
+// bubbleAmount() {
+//   const amount = Math.floor(window.innerWidth / 40);
+//   return Array.from({ length: amount });
+// }

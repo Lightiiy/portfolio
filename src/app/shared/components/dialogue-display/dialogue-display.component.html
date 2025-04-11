@@ -1,0 +1,5 @@
+<div class="dialogue">
+	@for (dialogueKey of dialogueArray$(); track $index) {
+		<p class="dialogue__text" [fullText]="dialogueKey | translate"></p>
+	}
+</div>
