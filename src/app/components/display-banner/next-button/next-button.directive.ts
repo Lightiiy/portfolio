@@ -58,7 +58,6 @@ export class NextButtonDirective implements AfterViewInit {
 
 	removeButtonFromDisplay() {
 		if (this.nextLineIndicator.classList.contains('removed')) {
-			console.log('its already removed');
 			return;
 		}
 		this.renderer.addClass(this.nextLineIndicator, 'removed');

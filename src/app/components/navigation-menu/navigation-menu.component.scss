@@ -1,19 +1,75 @@
-@use "../../styles/grid";
+@use '../../styles/grid';
+@use '../../styles/typography';
+@use '../../styles/spacing';
 
-.portfolio {
-  &__navigationMenu {
-    display: block;
-    color: red;
-    border-top: 5px solid white;
+.navigationMenu {
+	list-style: none;
+	margin: 0;
+	padding-left: spacing.$space-md;
+	height: 100%;
+	display: block;
+	border-top: 5px solid white;
 
-    @media (min-width: grid.$breakpoint-sm) {
-      border-top: none;
-      border-left: 5px solid white;
-    }
-  }
+	@media (min-width: grid.$breakpoint-sm) {
+		border-top: none;
+		border-left: 5px solid white;
+	}
+
+	&__navItem {
+		padding-top: spacing.$space-xs;
+		:link {
+			text-decoration: none;
+			color: white;
+			font-family: typography.$font-primary-pixel;
+			font-size: typography.$font-size-md;
+		}
+
+		:active {
+			color: gray;
+		}
+
+		:visited {
+			color: gray;
+		}
+
+		:hover {
+			animation: rainbowHover 3s ease-in infinite;
+		}
+	}
 }
-:host {
-  background: hotpink;
-  display: block;
-  border: 1px dashed lime;
+
+@keyframes rainbowHover {
+	0% {
+		color: red;
+	}
+	10% {
+		color: orange;
+	}
+	20% {
+		color: yellow;
+	}
+	30% {
+		color: yellowgreen;
+	}
+	40% {
+		color: greenyellow;
+	}
+	50% {
+		color: green;
+	}
+	60% {
+		color: skyblue;
+	}
+	70% {
+		color: blue;
+	}
+	80% {
+		color: blueviolet;
+	}
+	90% {
+		color: purple;
+	}
+	100% {
+		color: darkmagenta;
+	}
 }

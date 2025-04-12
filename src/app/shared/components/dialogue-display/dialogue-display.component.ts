@@ -1,10 +1,8 @@
 import { Component, computed, inject, input, OnInit } from '@angular/core';
-import {
-	DialogueDicitonaryKeys,
-	getDialogueForKey,
-} from '../../../../assets/character.vocabulary';
+import { DialogueDicitonaryKeys } from '../../../../assets/character.vocabulary';
 import { DialogueManagerService } from '../../services/dialogue-manager.service';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { TranslateService } from '../../services/translate.service';
 
 @Component({
 	selector: 'port-dialogue-display',
@@ -15,6 +13,8 @@ import { toSignal } from '@angular/core/rxjs-interop';
 export class DialogueDisplayComponent implements OnInit {
 	dialogueManagerService = inject(DialogueManagerService);
 
+	translateService = inject(TranslateService);
+
 	dialogueDicitonaryKey$ = input.required<DialogueDicitonaryKeys>({
 		alias: 'dialgoueDictionaryKey',
 	});
@@ -22,14 +22,18 @@ export class DialogueDisplayComponent implements OnInit {
 	maxLines$$ = toSignal(this.dialogueManagerService.displayedText$$);
 
 	dialogueArray$ = computed(() => {
-		return getDialogueForKey(this.dialogueDicitonaryKey$()).slice(
-			0,
-			this.maxLines$$()
-		);
+		return Object.keys(
+			this.translateService.translate(this.dialogueDicitonaryKey$())
+		)
+			.map((key) => `${this.dialogueDicitonaryKey$()}.${key}`)
+			.slice(0, this.maxLines$$());
 	});
+
 	ngOnInit(): void {
 		this.dialogueManagerService.setMaxDialogueOnScreen(
-			getDialogueForKey(this.dialogueDicitonaryKey$()).length
+			Object.keys(
+				this.translateService.translate(this.dialogueDicitonaryKey$())
+			).length
 		);
 	}
 }

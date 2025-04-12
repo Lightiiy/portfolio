@@ -34,6 +34,7 @@
     "@types/jasmine": "~5.1.0",
     "@typescript-eslint/eslint-plugin": "^8.25.0",
     "@typescript-eslint/parser": "^8.25.0",
+    "angular-cli-ghpages": "^2.0.3",
     "eslint": "^9.21.0",
     "eslint-define-config": "^2.1.0",
     "jasmine-core": "~5.5.0",

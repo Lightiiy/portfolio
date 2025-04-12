@@ -3,7 +3,7 @@
 
 .portfolioDisplayBanner {
 	position: relative;
-	background-image: url('../../../assets/img/PLACEHOLDER.jpg');
+	background-image: url('../../../assets/img/portfolio_background.webp');
 	height: 100%;
 	background-size: contain;
 	background-position: center;
@@ -19,6 +19,7 @@
 		color: white;
 		border-right: 0.25rem solid transparent;
 		animation: blink-carret 0.75s step-end infinite;
+		cursor: pointer;
 	}
 }
 

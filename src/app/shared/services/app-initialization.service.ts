@@ -1,7 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { TranslateService } from './translate.service';
 import { Observable } from 'rxjs';
-import { of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
 @Injectable({

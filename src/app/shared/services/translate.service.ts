@@ -22,8 +22,17 @@ export class TranslateService {
 		);
 	}
 
-	translate(key: string): string {
-		return this.translations[key] || key;
+	translate(wholeKey: string): string {
+		const keyArray = wholeKey.split('.');
+		let result = this.translations;
+		for (const key of keyArray) {
+			if (typeof this.translations[key] !== 'object' && !result) {
+				return wholeKey;
+			}
+			result = result[key];
+		}
+
+		return result || wholeKey;
 	}
 
 	setLanguage(lang: string) {

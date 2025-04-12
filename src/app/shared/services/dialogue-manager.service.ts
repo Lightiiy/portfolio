@@ -1,20 +1,21 @@
 import { EventEmitter, inject, Injectable } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { BehaviorSubject, filter, map } from 'rxjs';
+import { BehaviorSubject, combineLatest, filter, map, tap } from 'rxjs';
 
 @Injectable()
 export class DialogueManagerService {
 	private router = inject(Router);
 
-	private maxDialogueOnScreen = 5;
+	private maxDialogueOnScreen$$ = new BehaviorSubject<number>(1);
 
 	nextLineEvent$$ = new EventEmitter<unknown>();
 
 	displayedText$$ = new BehaviorSubject<number>(1);
 
-	isMoreText$$ = this.displayedText$$.pipe(
-		map((currentLines) => currentLines < this.maxDialogueOnScreen)
-	);
+	isMoreText$$ = combineLatest([
+		this.displayedText$$,
+		this.maxDialogueOnScreen$$,
+	]).pipe(map(([currentLines, maxlines]) => currentLines < maxlines));
 
 	constructor() {
 		this.router.events
@@ -26,6 +27,8 @@ export class DialogueManagerService {
 		this.nextLineEvent$$.subscribe(() => {
 			this.increaseDisplayedText();
 		});
+
+		this.displayedText$$.subscribe((data) => console.log(data));
 	}
 
 	resetDisplayedText() {
@@ -34,13 +37,14 @@ export class DialogueManagerService {
 
 	increaseDisplayedText() {
 		this.displayedText$$.next(
-			this.displayedText$$.getValue() + 1 <= this.maxDialogueOnScreen
+			this.displayedText$$.getValue() + 1 <=
+				this.maxDialogueOnScreen$$.getValue()
 				? this.displayedText$$.getValue() + 1
-				: this.maxDialogueOnScreen
+				: this.maxDialogueOnScreen$$.getValue()
 		);
 	}
 
 	setMaxDialogueOnScreen(arraySize: number) {
-		this.maxDialogueOnScreen = arraySize;
+		this.maxDialogueOnScreen$$.next(arraySize);
 	}
 }
