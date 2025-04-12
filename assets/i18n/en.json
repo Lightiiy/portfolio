@@ -1,0 +1,15 @@
+{
+	"HomePage": {
+		"WelcomeMessage": "Hello! Welcome to my little portfolio corner!"
+	},
+	"AboutPage": {
+		"WelcomeMessage": "This is the about section that is just full of text isnt it?",
+		"Message1": "Like there is just so much text in this section that it can barely fit in this container",
+		"Message2": "I just hope this text wont get so long you'll have to scroll or something",
+		"Message3": "That would be such a shame",
+		"Message4": "But here we are in the end"
+	},
+	"NextButtonIndicator": {
+		"Text": "Next..."
+	}
+}
