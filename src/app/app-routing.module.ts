@@ -1,16 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomePageComponent } from './pages/home-page/home-page.component';
-import { AboutComponent } from './pages/about/about.component';
+import { APP_ROUTES, AppRoute } from './shared/models/app-routing.model';
 
-const routes: Routes = [
-  { path: 'home', component: HomePageComponent }, // /home route
-  { path: 'about', component: AboutComponent }, // /home route
-  { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redirect root to /home
-];
+function flattenRoutes(routes: AppRoute[]): Routes {
+	const result: Routes = [];
+	for (const route of routes) {
+		const { path, component, children } = route;
+
+		result.push({
+			path,
+			component,
+			children: children ? flattenRoutes(children) : undefined,
+		});
+	}
+
+	return result;
+}
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+	imports: [RouterModule.forRoot(flattenRoutes(APP_ROUTES))],
+	exports: [RouterModule],
 })
 export class AppRoutingModule {}

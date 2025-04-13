@@ -6,6 +6,7 @@ import { ScreenWidthService } from './services/screen-width.service';
 import { DialogueDisplayComponent } from './components/dialogue-display/dialogue-display.component';
 import { DialogueManagerService } from './services/dialogue-manager.service';
 import { TypingAnimationDirective } from './components/dialogue-display/typing-animation/typing-animation.directive';
+import { RouteManagerService } from './services/route-manager.service';
 
 @NgModule({
 	declarations: [
@@ -16,6 +17,11 @@ import { TypingAnimationDirective } from './components/dialogue-display/typing-a
 	],
 	imports: [CommonModule],
 	exports: [TranslatePipe, DialogueDisplayComponent],
-	providers: [TranslateService, ScreenWidthService, DialogueManagerService],
+	providers: [
+		TranslateService,
+		ScreenWidthService,
+		DialogueManagerService,
+		RouteManagerService,
+	],
 })
 export class SharedModule {}

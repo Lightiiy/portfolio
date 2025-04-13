@@ -27,8 +27,6 @@ export class DialogueManagerService {
 		this.nextLineEvent$$.subscribe(() => {
 			this.increaseDisplayedText();
 		});
-
-		this.displayedText$$.subscribe((data) => console.log(data));
 	}
 
 	resetDisplayedText() {
