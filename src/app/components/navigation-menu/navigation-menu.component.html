@@ -1,22 +1,26 @@
 @let childRoute = childNav$$ | async;
 @let backRoute = backRoute$$ | async;
+@let childrenToDisplay = childrenToDisplay$$ | async;
 <ul class="navigationMenu">
 	@if (childRoute && backRoute) {
 		<li class="navigationMenu__navItem">
-			<a [routerLink]="backRoute.path"> &lt; {{ backRoute.label }}</a>
+			<a routerLink="/.."> &lt; {{ backRoute.label }}</a>
 		</li>
-		<!-- @for (children of childRoute.parent?.children; track children.path) {
+		@for (children of childrenToDisplay; track children.path) {
 			<li class="navigationMenu__navSubItem">
-				<a [routerLink]="childRoute.parent?.path">
-					{{ childRoute.parent?.label }}</a
+				<a
+					[routerLink]="[pathToComponent(children.path)]"
+					[routerLinkActive]="'active'"
+				>
+					{{ children.label }}</a
 				>
 			</li>
-		} -->
+		}
 	} @else {
 		@for (route of appRouteArray; track route.path) {
 			@if (!route.hideFromNav) {
 				<li class="navigationMenu__navItem">
-					<a [routerLink]="route.path" [routerLinkActive]="'active'">
+					<a [routerLink]="[route.path]" [routerLinkActive]="'active'">
 						{{ route.label }}</a
 					>
 				</li>

@@ -33,7 +33,8 @@
 			color: gray;
 		}
 
-		:hover {
+		:hover,
+		.active {
 			animation: rainbowHover 3s ease-in infinite;
 		}
 	}
