@@ -63,7 +63,7 @@ export class RouteManagerService {
 		const parsedRoute = this.flattenedRoutes.find(
 			(route) => route.route.path === url
 		);
-		if (parsedRoute !== undefined) {
+		if (!parsedRoute?.parent) {
 			return APP_ROUTES[0];
 		}
 		const parentRefrenceOfParent = this.flattenedRoutes.find(
