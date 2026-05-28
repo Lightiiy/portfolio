@@ -8,7 +8,8 @@ import { DialogueDicitonaryKeys } from '../../../assets/character.vocabulary';
 	styleUrl: './about.component.scss',
 })
 export class AboutComponent {
-	private static DICTIONARY_DIALOGUE_KEY: DialogueDicitonaryKeys = 'AboutPage';
+	private static DICTIONARY_DIALOGUE_KEY: DialogueDicitonaryKeys =
+		DialogueDicitonaryKeys.AboutPage;
 
 	getDialogueKey() {
 		return AboutComponent.DICTIONARY_DIALOGUE_KEY;

@@ -9,7 +9,8 @@ import { TranslateService } from '../../shared/services/translate.service';
 	styleUrl: './home-page.component.scss',
 })
 export class HomePageComponent {
-	private static DICTIONARY_DIALOGUE_KEY: DialogueDicitonaryKeys = 'HomePage';
+	private static DICTIONARY_DIALOGUE_KEY: DialogueDicitonaryKeys =
+		DialogueDicitonaryKeys.HomePage;
 
 	getDialogueKey() {
 		return HomePageComponent.DICTIONARY_DIALOGUE_KEY;

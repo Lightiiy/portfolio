@@ -1,44 +1,33 @@
+import { Route } from '@angular/router';
 import { AboutComponent } from '../../pages/about/about.component';
 import { HomePageComponent } from '../../pages/home-page/home-page.component';
+import { WorkExperienceComponent } from '../../pages/work-experience/work-experience.component';
 
-export interface AppRoute {
-	path: string;
-	label: string;
-	component?: any;
-	children?: AppRoute[];
-	hideFromNav?: boolean;
-}
-
-export interface RouteWithParent {
-	route: AppRoute;
-	parent?: AppRoute;
-}
-
-export const APP_ROUTES: AppRoute[] = [
+export const APP_ROUTES: Route[] = [
 	{
 		path: 'home',
-		label: 'Home Page',
+		title: 'Home',
 		component: HomePageComponent,
 	},
 	{
 		path: 'about',
-		label: 'AboutPage',
+		title: 'About Me',
 		component: AboutComponent,
 		children: [
 			{
 				path: 'experience',
-				label: 'Work experience',
-				component: HomePageComponent,
+				title: 'Work experience',
+				component: WorkExperienceComponent,
 			},
 			{
 				path: 'education',
-				label: 'Education',
-				component: HomePageComponent,
+				title: 'Education',
+				component: WorkExperienceComponent,
 				children: [
 					{
 						path: 'test',
-						label: 'TestComponent',
-						component: HomePageComponent,
+						title: 'TestComponent',
+						component: WorkExperienceComponent,
 					},
 				],
 			},
@@ -46,34 +35,33 @@ export const APP_ROUTES: AppRoute[] = [
 	},
 	{
 		path: 'settings',
-		label: 'Settings',
+		title: 'Settings',
 		component: HomePageComponent,
 	},
 	{
 		path: '**',
-		label: 'I got lost',
-		hideFromNav: true,
-		component: HomePageComponent,
+		redirectTo: 'home',
+		pathMatch: 'full',
 	},
 ];
 
-export function flatAppRoutes(): RouteWithParent[] {
-	let flattened: RouteWithParent[] = [];
+// export function flatAppRoutes(): RouteWithParent[] {
+// 	let flattened: RouteWithParent[] = [];
 
-	function recursiveFlatten(
-		routes: AppRoute[],
-		parent: AppRoute | undefined = undefined
-	) {
-		routes.forEach((route) => {
-			flattened.push({ route, parent });
+// 	function recursiveFlatten(
+// 		routes: AppRoute[],
+// 		parent: AppRoute | undefined = undefined
+// 	) {
+// 		routes.forEach((route) => {
+// 			flattened.push({ route, parent });
 
-			if (route.children) {
-				recursiveFlatten(route.children, route);
-			}
-		});
-	}
+// 			if (route.children) {
+// 				recursiveFlatten(route.children, route);
+// 			}
+// 		});
+// 	}
 
-	recursiveFlatten(APP_ROUTES);
-
-	return flattened;
-}
+// 	recursiveFlatten(APP_ROUTES);
+// 	console.log([flattened]);
+// 	return flattened;
+// }

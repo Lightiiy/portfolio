@@ -1,13 +1,15 @@
-import { Component, inject, Input, input } from '@angular/core';
 import {
-	APP_ROUTES,
-	AppRoute,
-	RouteWithParent,
-} from '../../shared/models/app-routing.model';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+	AfterViewInit,
+	Component,
+	inject,
+	Input,
+	input,
+	OnInit,
+} from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Route, Router } from '@angular/router';
 import { filter, map, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { RouteManagerService } from '../../shared/services/route-manager.service';
+import { APP_ROUTES } from '../../shared/models/app-routing.model';
 
 @Component({
 	selector: 'port-navigation-menu',
@@ -15,36 +17,12 @@ import { RouteManagerService } from '../../shared/services/route-manager.service
 	templateUrl: './navigation-menu.component.html',
 	styleUrl: './navigation-menu.component.scss',
 })
-export class NavigationMenuComponent {
-	appRouteArray: AppRoute[] = APP_ROUTES;
+export class NavigationMenuComponent implements AfterViewInit {
+	appRouteArray: Route[] = APP_ROUTES;
 
-	routeManagerService = inject(RouteManagerService);
+	activatedRoute = inject(ActivatedRoute);
 
-	childNav$$ = this.routeManagerService.childNav$$;
-
-	backRoute$$ = this.routeManagerService.backRoute$$;
-
-	currentAppRoute$$ = this.routeManagerService.currentPathAppRoute$$;
-
-	childrenToDisplay$$ = this.currentAppRoute$$.pipe(
-		map((appRoute) => {
-			if (appRoute.children) {
-				return appRoute.children;
-			}
-			const parent = this.routeManagerService.flattenedRoutes.find(
-				(appRoutes) => appRoutes.route.path === appRoute.path
-			)?.parent;
-			if (
-				parent &&
-				parent.children?.find((child) => child.path == appRoute.path)
-			) {
-				return parent.children;
-			}
-			return [];
-		})
-	);
-
-	pathToComponent(url: string): string {
-		return this.routeManagerService.buildFullPath(url);
+	ngAfterViewInit(): void {
+		console.log('ActivatedRoute:', this.activatedRoute);
 	}
 }

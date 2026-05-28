@@ -1,1 +1,5 @@
-export type DialogueDicitonaryKeys = 'HomePage' | 'AboutPage';
+export enum DialogueDicitonaryKeys {
+	HomePage = 'HomePage',
+	AboutPage = 'AboutPage',
+	WorkExperience = 'WorkExperience',
+}

@@ -3,11 +3,21 @@
 		"WelcomeMessage": "Hello! Welcome to my little portfolio corner!"
 	},
 	"AboutPage": {
-		"WelcomeMessage": "This is the about section that is just full of text isnt it?",
-		"Message1": "Like there is just so much text in this section that it can barely fit in this container",
-		"Message2": "I just hope this text wont get so long you'll have to scroll or something",
-		"Message3": "That would be such a shame",
-		"Message4": "But here we are in the end"
+		"Message0": "My internet name is Lightiiy.",
+		"Message1": "But if you prefer, my name is Gabriel.",
+		"Message2": "My pronouns are he/him or they/them, I don't really mind she/her pronouns.",
+		"Message3": "Just whatever pronouns you say and I understand you're talking to me.",
+		"Message4": "I don't really wanna make a fuss about it."
+	},
+	"WorkExperience": {
+		"Message0": "I've been working with Angular for about over 2 years",
+		"Message1": "First I've started with Deloitte during my college mandatory traineeship.",
+		"Message2": "It was pretty much a fullstack project, where each student was supposed to learn a bit about the web building process, and then decide what they'd like to focus on.",
+		"Message3": "So after the traineeship, I've decided to go into Frontend. And because we've used Angular, I stuck with it until now.",
+		"Message4": "I was then hired in Comarch, where I got to experience working on a large project with many talented people.",
+		"Message5": "It was a very different experience compared to before, mostly because it was my first time in an actual company project.",
+		"Message6": "But I worked on some of the projects features, on some bugfixing, even developing some more interesting functionalities.",
+		"Message7": "Things like biometric authentication on a native mobile version of the app, or creating an interactive world map."
 	},
 	"NextButtonIndicator": {
 		"Text": "Next..."

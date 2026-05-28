@@ -9,6 +9,7 @@ import { DisplayBannerComponent } from './components/display-banner/display-bann
 import { provideHttpClient } from '@angular/common/http';
 import { NextButtonDirective } from './components/display-banner/next-button/next-button.directive';
 import { AppInitializationService } from './shared/services/app-initialization.service';
+import { provideRouter } from '@angular/router';
 
 @NgModule({
 	declarations: [

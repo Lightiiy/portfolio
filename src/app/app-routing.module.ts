@@ -1,24 +1,19 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { APP_ROUTES, AppRoute } from './shared/models/app-routing.model';
-
-function flattenRoutes(routes: AppRoute[]): Routes {
-	const result: Routes = [];
-	for (const route of routes) {
-		const { path, component, children } = route;
-
-		result.push({
-			path,
-			component,
-			children: children ? flattenRoutes(children) : undefined,
-		});
-	}
-
-	return result;
-}
+import {
+	provideRouter,
+	RouterModule,
+	Routes,
+	withDebugTracing,
+} from '@angular/router';
+import { APP_ROUTES } from './shared/models/app-routing.model';
 
 @NgModule({
-	imports: [RouterModule.forRoot(flattenRoutes(APP_ROUTES))],
+	imports: [RouterModule.forRoot(APP_ROUTES)],
+	providers: [provideRouter(APP_ROUTES, withDebugTracing())],
 	exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+	constructor() {
+		console.log(APP_ROUTES);
+	}
+}
